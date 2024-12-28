@@ -25,10 +25,7 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.wrapper_search {
-  display: flex;
-  padding: 20px;
-}
+
 
 .title {
   font-size: 1.5rem;
@@ -38,6 +35,8 @@
   margin-top: 1rem;
   color: green;
 }
+
+
 
 @media screen and (min-width: 768px) {
   .wrapper_grid {
@@ -49,4 +48,10 @@
   .wrapper_grid {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+
+.wrapper_search {
+  display: flex;
+  padding: 20px;
 }
