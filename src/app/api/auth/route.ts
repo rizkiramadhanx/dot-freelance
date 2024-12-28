@@ -9,7 +9,7 @@ export async function POST(request: Request) {
   );
   const { username, password } = await request.json();
 
-  const login = await fetch("https://dummyjson.com/auth/login", {
+  const login = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

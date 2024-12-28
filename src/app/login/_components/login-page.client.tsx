@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import styles from "./login-page.module.css";
+import axios from "axios";
 
 const schema = z.object({
   username: z.string().min(4, { message: "Username minimal 4 karakter" }),
@@ -25,9 +26,10 @@ export default function LoginPage() {
   });
 
   const onSubmit = async (data: LoginSchema) => {
-    const res = await fetch("/api/auth", {
+    const res = await axios.request({
       method: "POST",
-      body: JSON.stringify(data),
+      url: "api/auth",
+      data,
     });
 
     if (res.status === 200) {
@@ -41,6 +43,8 @@ export default function LoginPage() {
     <div className={styles.container}>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.title}>Login</div>
+        <div className={styles.credentials}>u: emilys, p: emilyspass</div>
+
         <div className={styles.input_wrapper}>
           <label className={styles.label} htmlFor="username">
             Username

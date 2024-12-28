@@ -1,0 +1,31 @@
+.wrapper_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid rgb(87, 165, 87);
+  box-shadow: 1 4px 9px rgba(18, 230, 50, 0.2);
+  width: 100%;
+  cursor: pointer;
+}
+
+.wrapper_card:hover {
+  transform: scale(1.02);
+  transition: 0.3s ease;
+}
+
+.wrapper_text {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+}
+
+.title_product {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}

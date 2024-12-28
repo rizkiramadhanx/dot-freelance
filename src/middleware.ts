@@ -5,7 +5,8 @@ import { sessionData, sessionOptions } from "./app/utils/auth-session";
 
 // fetching data by token yang ada disession (server-side) tidak kelihatan di log browser
 async function getUser(access_token: string) {
-  const res = await fetch("https://dummyjson.com/auth/me", {
+  // get user data
+  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/auth/me", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -28,7 +29,6 @@ export async function middleware(request: NextRequest) {
     await cookies(),
     sessionOptions
   );
-  console.log(session.access_token);
 
   const user = await getUser(session.access_token!);
 
