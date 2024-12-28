@@ -28,7 +28,7 @@ export default function DetailPage({ id }: { id: string }) {
   const handleLogout = async () => {
     const res = await axios.request({
       method: "DELETE",
-      url: "api/auth",
+      url: "/api/auth",
     });
 
     if (res.status === 200) {

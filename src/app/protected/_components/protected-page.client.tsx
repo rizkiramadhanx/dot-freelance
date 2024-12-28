@@ -15,7 +15,7 @@ export default function ProtectedPage() {
   const handleLogout = async () => {
     const res = await axios.request({
       method: "DELETE",
-      url: "api/auth",
+      url: "/api/auth",
     });
 
     if (res.status === 200) {
