@@ -21,14 +21,21 @@ export async function POST(request: Request) {
     credentials: "include",
   });
 
+  if (login.status !== 200) {
+    return new Response(JSON.stringify({ message: "Login failed" }), {
+      status: 401,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
 
   const result = await login.json();
-
 
   session.access_token = result.accessToken;
   await session.save();
 
-  return new Response(JSON.stringify(result), {
+  return new Response(JSON.stringify({ message: "Login success" }), {
     status: 200,
     headers: {
       "Content-Type": "application/json",
