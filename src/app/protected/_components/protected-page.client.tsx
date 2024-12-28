@@ -25,7 +25,7 @@ export default function ProtectedPage() {
   const fetchingCity = async () => {
     const res = await axios.get("https://api.rajaongkir.com/starter/city", {
       params: {
-        key: "e06ceab783310eeba541cd7da0a35048",
+        key: process.env.RAJA_ONGKIR_KEY_API,
       },
     });
     setCityList(res.data.rajaongkir.results);
@@ -55,7 +55,7 @@ export default function ProtectedPage() {
       url: "https://api.rajaongkir.com/starter/cost",
 
       headers: {
-        key: "e06ceab783310eeba541cd7da0a35048",
+        key: process.env.RAJA_ONGKIR_KEY_API,
       },
       data: {
         origin: selectedCityId,
@@ -128,6 +128,7 @@ export default function ProtectedPage() {
 
         {data ? (
           <div>
+            {/* {JSON.stringify(data)} */}
             {data.map(
               (
                 item: { description: string; cost: { value: string }[] },
