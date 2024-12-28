@@ -13,10 +13,15 @@ configure .env
 ### Authencation
 https://dummyjson.com/docs/auth
 
-### Products
-product : https://dummyjson.com/docs/products
 
-## API 
+### Products
+https://dummyjson.com/docs/products
+
+## Credentials
+
+https://dummyjson.com/users
+
+## Env Variable 
 
 ### Example
 NEXT_PUBLIC_BASE_URL = https://dummyjson.com
