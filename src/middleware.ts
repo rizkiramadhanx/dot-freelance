@@ -24,6 +24,10 @@ async function getUser(access_token: string) {
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
+  if (pathname === "/") {
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
+  
   // get token from session-cookie
   const session = await getIronSession<sessionData>(
     await cookies(),
@@ -34,7 +38,6 @@ export async function middleware(request: NextRequest) {
 
   if (!user) {
     if (pathname === "/protected") {
-      console.log("user not found");
       return NextResponse.redirect(new URL("/login", request.url));
     }
 
@@ -56,5 +59,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/protected", "/login"],
+  matcher: ["/protected", "/login", "/"],
 };
